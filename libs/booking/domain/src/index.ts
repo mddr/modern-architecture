@@ -7,6 +7,7 @@ export * from './lib/entities/flight';
 export * from './lib/infrastructure/flight.service';
 
 export * from './lib/entities/flight-class';
+export * from './lib/entities/flight-filter';
 export * from './lib/infrastructure/flight-class.data.service';
 
 export * from './lib/application/upgrade.facade';
