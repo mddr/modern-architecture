@@ -42,4 +42,11 @@ export const APP_ROUTES: Routes = [
         exposedModule: './routes',
       }).then((m) => m.APP_ROUTES),
   },
+  {
+    path: 'upgrade',
+    loadChildren: () =>
+      import('@nx-example/booking/feature-upgrade').then(
+        (m) => m.UPGRADE_ROUTES
+      ),
+  },
 ];
