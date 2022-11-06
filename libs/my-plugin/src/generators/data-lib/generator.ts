@@ -5,33 +5,31 @@ import {
   Tree,
 } from '@nrwl/devkit';
 
-import {
-  libraryGenerator
-} from '@nrwl/angular/generators';
+import { libraryGenerator } from '@nrwl/angular/generators';
 
 import * as path from 'path';
 import { MyPluginGeneratorSchema } from './schema';
 import { names } from 'nx/src/utils/command-line-utils';
 
 export default async function (tree: Tree, options: MyPluginGeneratorSchema) {
-
   tree.write('demo.txt', 'Just a test!');
 
   await libraryGenerator(tree, {
     ...options,
-    standalone: true
+    standalone: true,
   });
 
   const libsDir = getWorkspaceLayout(tree).libsDir;
   const projectRoot = `${libsDir}/${options.name}`;
-  
+
   const entityFileName = names(options.entity).fileName;
   const entityClassName = names(options.entity).className;
 
   const templateOptions = {
     entityFileName,
     entityClassName,
-    template: ''
+    template: '',
+    save: options.save,
   };
 
   generateFiles(

@@ -17,6 +17,10 @@
     "entity": {
       "type": "string",
       "description": "Your entity name"
+    },
+    "save": {
+      "type": "boolean",
+      "description": "If true, add a `save` method to the data service"
     }
   },
   "required": ["name"]
